@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock %}</title>
+        <style>
+            body {
+                
+                font-family: Monserrat, sans-serif;
+                text-align: center;
+                min-height: 100vh;
+                background: linear-gradient(to bottom, #161031, #302c70);
+                margin:50px;
+                padding: 20px;
+            }
+            h1 {
+                color: #f4f9ff;
+            }
+            h2 {
+                color: #56bbff;
+            }
+            p {
+                color: #ffffff;
+                font-size: 14px;
+            }
+        </style>
+    </head>
+    <body>
+        {% block content %}
+
+        
+
+        {% endblock %}
+    </body> 
+</html>
