@@ -18,10 +18,13 @@ Including another URLconf
 
 from django.urls import path
 from app import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.index, name= 'home'),
+    path('index', views.index),
     path('about', views.about),
     path('services', views.services),
     path('contact', views.contact),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
