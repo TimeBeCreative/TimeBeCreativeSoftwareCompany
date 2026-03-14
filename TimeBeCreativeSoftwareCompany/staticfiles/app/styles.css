@@ -1,0 +1,151 @@
+*{
+    box-sizing:border-box;
+    /*outline:1px solid red;*/
+}
+body {
+                overflow-x:hidden;
+                font-family: Monserrat, sans-serif;
+                text-align: center;
+                min-height: 100vh;
+                background: linear-gradient(to bottom, #07050a, #302c70);
+                /*margin:50px;*/
+                padding: 20px;
+            }
+
+  #logoBig {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }           
+            h1 {
+                color: #f4f9ff;
+                transition:0.3s;
+            }
+            h1:hover {
+                transform:scale(1.2);
+                text-shadow:
+                0 0 25px #00ffff,
+                0 0 50px #00ffff,
+                0 0 100px #c9ffff;
+            }
+
+            h2, h3 {
+                color: #56bbff;
+                font-family: Monserrat, sans-serif;
+                
+            }
+            
+            p {
+                color: #ffffff;
+                font-size: 14px;
+            }
+
+           
+
+
+.header { 
+    
+                display: flex;
+                justify-content: center;
+            }
+
+          
+.logo_container { 
+            
+                
+                
+            }
+.logo_container img {
+    width: clamp(50px, 8vw, 100px);
+    height: clamp(50px, 8vw, 100px);
+    
+}
+
+.nav { /*Why logo end text go out of the screen? Answear: Because the flex container doesn't have a defined width */
+    display: flex; 
+    width:fit-content; 
+    gap:15vw;
+    align-items:center;
+            
+}
+
+.nav a {
+                width:fit-content;
+                color: #56bbff;
+                text-decoration: none;
+              /*  margin: 0 15px;*/
+                font-size: 20px;
+                transition:0.3s;
+            }
+
+.nav a:active {
+    color: #baffff;  
+    font-weight:bold;
+}
+.nav a:visited {
+    color: #56bbff; 
+}
+.nav a:hover {
+                transform:scale(1.2);
+                text-shadow:
+                0 0 25px #00ffff,
+                0 0 50px #00ffff,
+                0 0 100px #c9ffff;
+    
+}
+
+.team {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.teamMember {
+    color:#07050a;
+    background-color: #00000000;
+    outline:#56bbff solid 2px;
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    min-height: 600px;
+    height:auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+                 
+.teamMember:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.teamMember img { 
+    width:100%;
+    height:auto;
+    border-radius: 10px;
+    object-fit:cover;
+}
+
+.extraHeadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+.extraHeading { 
+    align-items: center;
+    justify-content: center;
+    color: #d5f8ff;
+    font-family: Monserrat, sans-serif;
+    font-size: 180px;
+    margin-top: 10px;
+    transition:0.3s;
+}
+
+.extraHeading:hover {
+     transform:scale(1.2);
+                text-shadow:
+                0 0 2px #00ffff,
+                0 0 50px #0089ff,
+                0 0 100px #c9ffff;
+}
