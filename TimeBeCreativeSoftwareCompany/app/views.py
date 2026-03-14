@@ -7,7 +7,12 @@ from django.core.mail import send_mail
 import threading
 
 def send_email_async(subject, message, from_email, recipient_list):
-    send_mail(subject, message, from_email, recipient_list, fail_silently=False)
+    try:
+        send_mail(subject, message, from_email, recipient_list, fail_silently=False)
+        print("EMAIL SENT SUCCESSFULLY")
+    except Exception as e:
+        print("EMAIL SENDING ERROR:", e)
+
 
 
 # Create your views here.
