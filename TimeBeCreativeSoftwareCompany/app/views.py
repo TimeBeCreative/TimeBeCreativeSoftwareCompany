@@ -42,4 +42,7 @@ def submit_contact(request):
     else:
         form = ContactForm()
 
+
     return render(request, "app/contact.html", {"form": form})
+
+
