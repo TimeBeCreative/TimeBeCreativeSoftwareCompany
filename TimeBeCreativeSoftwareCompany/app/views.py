@@ -5,11 +5,21 @@ from TimeBeCreativeSoftwareCompany.settings import EMAIL_HOST_USER
 from .forms import ContactForm
 from django.core.mail import send_mail
 import threading
+import os
+import resend
 
-def send_email_async(subject, message, from_email, recipient_list):
+resend.api_key = os.environ.get('RESEND_API_KEY')
+
+def send_email_resend(subject, message, to_email):
     try:
-        send_mail(subject, message, from_email, recipient_list, fail_silently=False)
-        print("EMAIL SENT SUCCESSFULLY")
+        r = resend.Emails.send({
+            "from": "TimeBeCreativeSoftwareCompany <no-reply@timebecreativesoftwarecompany.com>",
+            "to": to_email,
+            "subject": subject,
+            "html": f"<p>{message}</p>"
+        })
+        print("EMAIL SENT SUCCESSFULLY:", to_email)
+        return r
     except Exception as e:
         print("EMAIL SENDING ERROR:", e)
 
@@ -38,34 +48,27 @@ def submit_contact(request):
             email = form.cleaned_data["email"]
             message = form.cleaned_data["message"]
 
-
-            thread1 = threading.Thread(target=send_email_async, args=(
+            # Лист до тебе
+            thread1 = threading.Thread(target=send_email_resend, args=(
                 f"Message from {name} <{email}>",
-                message,    
-                EMAIL_HOST_USER,
-                ["cherevatenkoviktoriya@gmail.com"]
-
-            )
-            )
+                message,
+                "cherevatenkoviktoriya@gmail.com"
+            ))
             thread1.daemon = True
             thread1.start()
-            
-            thread2 = threading.Thread(target=send_email_async, args=(
+
+            # Лист клієнту
+            thread2 = threading.Thread(target=send_email_resend, args=(
                 f"Дякуємо за звернення до TimeBeCreativeSoftwareCompany",
-                f"{name},\n\nДякуємо за ваше повідомлення, ми розглянемо його і відповімо, як тільки буде змога. Лист до нашої інноваційної та потужної компанії гарантує вам крок до успіху, адже ми перетворюємо ідеї на програмні рішення.\n\nЗ повагою,\nкоманда TimeBeCreativeSoftwareCompany",
-                EMAIL_HOST_USER,
-                [email],
-                )
-            )
+                f"{name},<br><br>якуємо за ваше повідомлення, ми розглянемо його і відповімо, як тільки буде змога. Лист до нашої інноваційної та потужної компанії гарантує вам крок до успіху, адже ми перетворюємо ідеї на програмні рішення.<br><br>З повагою,<br>команда TimeBeCreativeSoftwareCompany",
+                email
+            ))
             thread2.daemon = True
             thread2.start()
-            
 
             return render(request, "app/contact.html", {"form": ContactForm(), "success": True})
+
     else:
         form = ContactForm()
 
-
     return render(request, "app/contact.html", {"form": form})
-
-
