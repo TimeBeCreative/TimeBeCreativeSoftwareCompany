@@ -1,6 +1,6 @@
 *{
     box-sizing:border-box;
-    /*outline:1px solid red;*/
+   /* outline:1px solid red;*/
 }
 
 
@@ -160,15 +160,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50vh;
+    height: 20vh;
 }
 .extraHeading { 
     align-items: center;
     justify-content: center;
     color: #d5f8ff;
     font-family: Monserrat, sans-serif;
-    font-size: 180px;
-    margin-top: 10px;
+    font-size: 100px;
     transition:0.3s;
 }
 
