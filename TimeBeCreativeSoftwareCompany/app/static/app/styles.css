@@ -2,6 +2,8 @@
     box-sizing:border-box;
     /*outline:1px solid red;*/
 }
+
+
 body {
                 overflow-x:hidden;
                 font-family: Monserrat, sans-serif;
@@ -47,7 +49,11 @@ body {
 .header { 
     
                 display: flex;
-                justify-content: center;
+                justify-content: space-between;
+                align-items:center;
+                width:100%;
+                box-sizing:border-box;
+    padding:10px  20px;
             }
 
           
@@ -58,15 +64,16 @@ body {
             }
 .logo_container img {
     width: clamp(50px, 8vw, 100px);
-    height: clamp(50px, 8vw, 100px);
+    height: auto;
     
 }
 
 .nav { /*Why logo end text go out of the screen? Answear: Because the flex container doesn't have a defined width */
     display: flex; 
-    width:fit-content; 
-    gap:15vw;
+    width:100%;
+    gap:clamp(10px,2vw,30px);
     align-items:center;
+    justify-content:space-between;
             
 }
 
@@ -93,6 +100,24 @@ body {
                 0 0 50px #00ffff,
                 0 0 100px #c9ffff;
     
+}
+
+
+.flag {
+    
+    width:50px;
+    height:50px;
+    object-fit: cover;
+    justify-items:center;
+    align-items:center;
+    
+    
+}
+
+.flag img {
+    
+    width: clamp(90px, 8vw, 90px);
+    height: clamp(50px, 8vw, 50px);
 }
 
 .team {
@@ -124,6 +149,11 @@ body {
     height:auto;
     border-radius: 10px;
     object-fit:cover;
+}
+
+.teamMember p {
+    font-size: 16px;
+    line-height:1.6;
 }
 
 .extraHeadingContainer {
