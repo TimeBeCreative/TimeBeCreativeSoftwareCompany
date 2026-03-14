@@ -1,9 +1,10 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from TimeBeCreativeSoftwareCompany.TimeBeCreativeSoftwareCompany.settings import EMAIL_HOST_USER
+from TimeBeCreativeSoftwareCompany.settings import EMAIL_HOST_USER
 from .forms import ContactForm
 from django.core.mail import send_mail
+
 
 # Create your views here.
 
@@ -29,13 +30,22 @@ def submit_contact(request):
             message = form.cleaned_data["message"]
 
             send_mail(
-                f"Message from {name}",
+                f"Message from {name} <{email}>",
                 message,
                 EMAIL_HOST_USER,
                 ["cherevatenkoviktoriya@gmail.com"],
+               # headers={'Reply-To': email},
                 fail_silently = False,
-                headers={'Reply-To': email},
+                
 
+            )
+
+            send_mail(
+                f"Дякуємо за звернення до TimeBeCreativeSoftwareCompany",
+                f"{name},\n\nДякуємо за ваше повідомлення, ми розглянемо його і відповімо, як тільки буде змога. Лист до нашої інноваційної та потужної компанії гарантує вам крок до успіху, адже ми перетворюємо ідеї на програмні рішення.\n\nЗ повагою,\nкоманда TimeBeCreativeSoftwareCompany",
+                EMAIL_HOST_USER,
+                [email],
+                fail_silently = False,
             )
 
             return render(request, "app/contact.html", {"form": ContactForm(), "success": True})
