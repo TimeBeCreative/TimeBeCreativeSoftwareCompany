@@ -1,5 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+
+from TimeBeCreativeSoftwareCompany.TimeBeCreativeSoftwareCompany.settings import EMAIL_HOST_USER
 from .forms import ContactForm
 from django.core.mail import send_mail
 
@@ -29,8 +31,11 @@ def submit_contact(request):
             send_mail(
                 f"Message from {name}",
                 message,
-                email,
+                EMAIL_HOST_USER,
                 ["cherevatenkoviktoriya@gmail.com"],
+                fail_silently = False,
+                headers={'Reply-To': email},
+
             )
 
             return render(request, "app/contact.html", {"form": ContactForm(), "success": True})
