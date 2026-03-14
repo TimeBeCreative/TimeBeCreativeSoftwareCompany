@@ -1,6 +1,8 @@
 {% extends "app/layout.html" %}
+{% load static %}
 {% block title %} Home {% endblock %}
 {% block content %}
-    <h1>TimeBeCreative</h1>
-    <h2>Software Company</h2>
+   
+    <img id="logoBig" src="{% static 'app/logo.png' %}" alt="TimeBeCreative Logo Big">
 {% endblock %}
+

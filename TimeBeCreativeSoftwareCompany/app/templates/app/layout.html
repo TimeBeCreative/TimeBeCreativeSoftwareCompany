@@ -4,39 +4,39 @@
         <meta charset = "UTF-8">
         <meta name = "viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}{% endblock %}</title>
-        <style>
-            body {
-                
-                font-family: Monserrat, sans-serif;
-                text-align: center;
-                min-height: 100vh;
-                background: linear-gradient(to bottom, #161031, #302c70);
-                margin:50px;
-                padding: 20px;
-            }
-            h1 {
-                color: #f4f9ff;
-            }
-            h2 {
-                color: #56bbff;
-            }
-            p {
-                color: #ffffff;
-                font-size: 14px;
-            }
-        </style>
+        
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'app/styles.css' %}">
     </head>
+    
     <body>
-        <div class = "nav">
+        
+        <div class = "header">
+        
+            <div class = "nav">
+
+            <a href = 'index' class = "logo_container">
+                    <img src = "{% static 'app/logo.png' %}"  alt =  "TimeBeCreative Logo"> </img>
+            </a>
+
             <a href = 'index'>Home</a>
             <a href = 'about'>About</a>
             <a href = 'services'>Services</a>
             <a href = 'contact'>Contact</a>
+
+            </div>
+
+            
+        
         </div>
+        
+        <h1>TimeBeCreative</h1>
+        <h2>Software Company</h2>
         {% block content %}
 
         
 
         {% endblock %}
+        
     </body> 
 </html>
