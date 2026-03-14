@@ -3,5 +3,43 @@
 {% block title %} Contact {% endblock %}
 {% block content %}
     
-    <p>Contact info is here, we are joyfull and like new clients chatting!</p>
+    <div class="extraHeadingContainer">
+        <span class="extraHeading">🔥</span>
+    </div>
+    
+    <div class="extraHeadingContainer">
+        <span class="extraHeading">Зв'яжіться з нами</span>
+    </div>
+       
+    
+
+    <div class="formcontainer">
+        <h2>
+            Якщо ви зацікавлені у співпраці або хочете замовити розробку програмного забезпечення, зв'яжіться з нами!
+        </h2>
+            <form method="POST" action="{% url 'submit_contact' %}">
+        {% csrf_token %}
+
+        
+
+       
+        
+        <label for="name">Ваше ім'я:</label>
+        {{ form.name }}
+
+        <label for="email">Ваша пошта:</label>
+        {{ form.email }}
+
+        <label for="message">Повідомлення:</label>
+        {{ form.message }}
+        <button type="submit">Надіслати</button>
+    </form>
+        </div>
+
+    
+
+    {% if success %}
+        <p>Ваше послання відправилось в наше королівство!</p>
+    {% endif %}
+
 {% endblock %}

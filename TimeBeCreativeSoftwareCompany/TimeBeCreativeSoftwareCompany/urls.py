@@ -27,4 +27,5 @@ urlpatterns = [
     path('about', views.about),
     path('services', views.services),
     path('contact', views.contact),
+    path('submit_contact', views.submit_contact, name='submit_contact'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
