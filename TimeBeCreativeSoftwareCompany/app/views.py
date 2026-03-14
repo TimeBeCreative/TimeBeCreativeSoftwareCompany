@@ -34,22 +34,26 @@ def submit_contact(request):
             message = form.cleaned_data["message"]
 
 
-            threading.Thread(target=send_email_async, args=(
+            thread1 = threading.Thread(target=send_email_async, args=(
                 f"Message from {name} <{email}>",
                 message,    
                 EMAIL_HOST_USER,
                 ["cherevatenkoviktoriya@gmail.com"]
 
             )
-            ).start()
+            )
+            thread1.daemon = True
+            thread1.start()
             
-            threading.Thread(target=send_email_async, args=(
+            thread2 = threading.Thread(target=send_email_async, args=(
                 f"Дякуємо за звернення до TimeBeCreativeSoftwareCompany",
                 f"{name},\n\nДякуємо за ваше повідомлення, ми розглянемо його і відповімо, як тільки буде змога. Лист до нашої інноваційної та потужної компанії гарантує вам крок до успіху, адже ми перетворюємо ідеї на програмні рішення.\n\nЗ повагою,\nкоманда TimeBeCreativeSoftwareCompany",
                 EMAIL_HOST_USER,
                 [email],
                 )
-            ).start()
+            )
+            thread2.daemon = True
+            thread2.start()
             
 
             return render(request, "app/contact.html", {"form": ContactForm(), "success": True})
