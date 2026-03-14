@@ -4,6 +4,10 @@ from django.shortcuts import render
 from TimeBeCreativeSoftwareCompany.settings import EMAIL_HOST_USER
 from .forms import ContactForm
 from django.core.mail import send_mail
+import threading
+
+def send_email_async(subject, message, from_email, recipient_list):
+    send_mail(subject, message, from_email, recipient_list, fail_silently=False)
 
 
 # Create your views here.
@@ -29,24 +33,24 @@ def submit_contact(request):
             email = form.cleaned_data["email"]
             message = form.cleaned_data["message"]
 
-            send_mail(
+
+            threading.Thread(target=send_email_async, args=(
                 f"Message from {name} <{email}>",
-                message,
+                message,    
                 EMAIL_HOST_USER,
-                ["cherevatenkoviktoriya@gmail.com"],
-               # headers={'Reply-To': email},
-                fail_silently = False,
-                
+                ["cherevatenkoviktoriya@gmail.com"]
 
             )
-
-            send_mail(
+            ).start()
+            
+            threading.Thread(target=send_email_async, args=(
                 f"Дякуємо за звернення до TimeBeCreativeSoftwareCompany",
                 f"{name},\n\nДякуємо за ваше повідомлення, ми розглянемо його і відповімо, як тільки буде змога. Лист до нашої інноваційної та потужної компанії гарантує вам крок до успіху, адже ми перетворюємо ідеї на програмні рішення.\n\nЗ повагою,\nкоманда TimeBeCreativeSoftwareCompany",
                 EMAIL_HOST_USER,
                 [email],
-                fail_silently = False,
-            )
+                )
+            ).start()
+            
 
             return render(request, "app/contact.html", {"form": ContactForm(), "success": True})
     else:
