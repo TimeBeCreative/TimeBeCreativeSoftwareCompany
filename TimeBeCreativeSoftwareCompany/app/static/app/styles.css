@@ -193,8 +193,10 @@ form {
     display: flex;
     flex-direction:column;
     gap:15px;
-    width:400px;
+    width:100%;
+    max-width:400px;
     margin:40px auto;
+    padding: 0 10px;
     
 }
 
@@ -249,6 +251,7 @@ button:hover{
     background:#0f0e2d;
     padding: 30px 40px;
     margin:50px auto;
+    width:100%;
     max-width:800px;
     box-shadow:0 8px 20px rgba(0, 137,  255, 0.2);
     border: 2px solid #0089ff;
@@ -259,3 +262,73 @@ button:hover{
     transform:translateY(-5px);
     box-shadow: 0 12px 25px rgba(0, 137, 255, 0.3);
 }
+
+.HomeInvitationText {
+    width: 80%;
+    margin: 0 auto;
+    color: #56bbff;
+    margin-top: 20px;
+    transition:0.3s;
+    padding: 20px;
+    margin-top:80px;
+
+
+     display: flex;               /* робимо flex-контейнер */
+    flex-direction: column;      /* вертикальне розташування */
+    justify-content: space-between;
+    
+    color:#07050a;
+    background-color: #00000000;
+    outline:#56bbff solid 2px;
+    border-radius: 10px;
+    height:auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    align-items:center;
+}
+
+.HomeInvitationText p {
+    color: #f8fcff;
+    transition:0.3s;
+     font-size: 16px;
+    line-height:1.6;
+}
+
+
+.services {
+            display: flex;
+            flex-direction:column;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .serviceCard {
+            background-color: #3f487c;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 100%;
+            height: 200px;
+            
+            display: flex;
+            flex-direction: row;
+            align-items:stretch;
+        }
+
+        .serviceCard .imageContainer {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .serviceCard img {
+            width: 100%;
+            height: auto;
+        }
+
+        .serviceContent {
+            padding: 15px;
+        }
+
+        .serviceContent h3 {
+            margin-top: 0;
+        }

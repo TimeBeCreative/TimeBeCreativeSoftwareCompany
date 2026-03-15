@@ -4,69 +4,46 @@
 {% block content %}
     <p>Our services are here.</p>
 
-    #horizontal cards with image and text right to the image, this is services cards
-
-    <style>
-        .services {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .serviceCard {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            width: 300px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .serviceCard img {
-            width: 100%;
-            height: auto;
-        }
-
-        .serviceContent {
-            padding: 15px;
-        }
-
-        .serviceContent h3 {
-            margin-top: 0;
-        }
-    </style>
-    <div class="serviceCard">
-            <img src="{% static 'app/services/service4.jpg' %}" alt="Service 4">
-            <div class="serviceContent">
-                <h3>Custom Software Development</h3>
-                <p>.</p>
-            </div>
-        </div>
+    
 
     <div class="services">
         <div class="serviceCard">
-            <img src="{% static 'app/services/service1.jpg' %}" alt="Service 1">
+            <div class = "imageContainer">
+            <img src="{% static 'app/services/service4.jpg' %}" alt="Service 4"> 
+            </div>
             <div class="serviceContent">
-                <h3>Brand game development</h3>
-                <p></p>
+                <h3>Персоналізоване програмне забезпечення</h3>
+                <p>Ми розробляємо індивідуальне програмне забезпечення, яке створюється спеціально під потреби клієнта. Такі програми можуть використовуватися для автоматизації роботи компаній, обробки даних, управління інформацією або оптимізації внутрішніх процесів. Під час розробки враховуються вимоги клієнта, особливості бізнесу та необхідний функціонал програми. Це дозволяє створювати програмні продукти, які максимально відповідають поставленим завданням.</p>
+            </div>
+        </div>
+        <div class="serviceCard">
+            <div class = "imageContainer">
+            <img src="{% static 'app/services/service1.png' %}" alt="Service 1">
+            </div>
+            <div class="serviceContent">
+                <h3>Розробка бренд-ігор</h3>
+                <p>Наша команда створює брендовані комп’ютерні ігри, які можуть використовуватися для реклами, навчання або розваг. Такі ігри допомагають компаніям популяризувати свій бренд і привертати увагу користувачів.</p>
             </div>
         </div>
 
         <div class="serviceCard">
+            <div class = "imageContainer">
             <img src="{% static 'app/services/service2.jpg' %}" alt="Service 2">
+            </div>
             <div class="serviceContent">
-                <h3>Mobile App Development</h3>
-                <p></p>
+                <h3>Розробка мобільних додатків</h3>
+                <p>Ми створюємо мобільні додатки для платформи Android різної складності — від простих інформаційних сервісів до функціональних бізнес-додатків. Під час розробки особлива увага приділяється зручності інтерфейсу, стабільності роботи та продуктивності додатків. Це дозволяє створювати сучасні мобільні продукти, які зручно використовувати на різних пристроях.</p>
             </div>
         </div>
 
         <div class="serviceCard">
+            <div class = "imageContainer">
             <img src="{% static 'app/services/service3.jpg' %}" alt="Service 3">
+            </div>
             <div class="serviceContent">
-                <h3>Web Development</h3>
-                <p></p>
+                <h3>Веб-розробка</h3>
+                <p>Наша команда розробляє веб-сайти та веб-додатки для різних сфер діяльності. Це можуть бути корпоративні сайти, інформаційні ресурси або онлайн-сервіси.
+Сайти створюються з використанням сучасних технологій веб-розробки та адаптивного дизайну, що забезпечує коректну роботу на комп’ютерах, планшетах та мобільних пристроях.</p>
             </div>
         </div>
 
