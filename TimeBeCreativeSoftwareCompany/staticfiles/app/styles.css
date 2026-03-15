@@ -11,8 +11,11 @@ body {
                 min-height: 100vh;
                 background: linear-gradient(to bottom, #07050a, #302c70);
                 /*margin:50px;*/
-                padding: 20px;
             }
+
+.maincontant {
+    padding:20px;
+}
 
   #logoBig {
             display: block;
@@ -363,4 +366,31 @@ button:hover{
             text-align:center;
         }
 
+}
+
+.consultationButton {
+ margin-top:10px;
+    padding:12px;
+    border:none;
+    font-size:18px;
+    font-weight:bold;
+    background:none;
+    color:#56bbff;
+    cursor:pointer;
+    transition:0.3s;
+    border:2px solid #0089ff;
+}
+
+.consultationButton:hover{
+    background: #006df61c;
+    transform: scale(1.05);
+}
+
+footer {
+    margin-top: 50px;
+    padding: 50px;
+    background-color: #0f0e2d;
+    color: #56bbff;
+    text-align: center;
+    font-size: 14px;
 }
