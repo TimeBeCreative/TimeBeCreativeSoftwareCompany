@@ -1,6 +1,6 @@
 *{
     box-sizing:border-box;
-   /* outline:1px solid red;*/
+  /*  outline:1px solid red;*/
 }
 
 
@@ -14,7 +14,7 @@ body {
             }
 
 .maincontant {
-    padding:20px;
+    /*padding:20px;*/
 }
 
   #logoBig {
@@ -255,7 +255,7 @@ button:hover{
 .formcontainer{
     background:#0f0e2d;
     padding: 30px 40px;
-    margin:50px auto;
+    margin: 0 auto;
     width:100%;
     max-width:800px;
     box-shadow:0 8px 20px rgba(0, 137,  255, 0.2);
