@@ -3,4 +3,71 @@
 {% block title %} Services {% endblock %}
 {% block content %}
     <p>Our services are here.</p>
+
+    #horizontal cards with image and text right to the image, this is services cards
+
+    <style>
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .serviceCard {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .serviceCard img {
+            width: 100%;
+            height: auto;
+        }
+
+        .serviceContent {
+            padding: 15px;
+        }
+
+        .serviceContent h3 {
+            margin-top: 0;
+        }
+    </style>
+
+    <div class="services">
+        <div class="serviceCard">
+            <img src="{% static 'app/services/service1.jpg' %}" alt="Service 1">
+            <div class="serviceContent">
+                <h3>Custom Software Development</h3>
+                <p>We create tailor-made software solutions that perfectly fit your business needs. Our team of experienced developers will work closely with you to understand your requirements and deliver high-quality, scalable, and efficient software.</p>
+            </div>
+        </div>
+
+        <div class="serviceCard">
+            <img src="{% static 'app/services/service2.jpg' %}" alt="Service 2">
+            <div class="serviceContent">
+                <h3>Mobile App Development</h3>
+                <p>Our mobile app development services cover both iOS and Android platforms. We design and develop user-friendly and feature-rich mobile applications that help you reach your customers on their preferred devices.</p>
+            </div>
+        </div>
+
+        <div class="serviceCard">
+            <img src="{% static 'app/services/service3.jpg' %}" alt="Service 3">
+            <div class="serviceContent">
+                <h3>Web Development</h3>
+                <p>We build responsive and dynamic websites that provide an exceptional user experience. Our web development services include front-end and back-end development, ensuring your website is fast, secure, and easy to navigate.</p>
+            </div>
+        </div>
+
+        <div class="serviceCard">
+            <img src="{% static 'app/services/service4.jpg' %}" alt="Service 4">
+            <div class="serviceContent">
+                <h3>Cloud Solutions</h3>
+                <p>Our cloud solutions help you leverage the power of cloud computing to enhance your business operations. We offer cloud migration, cloud infrastructure management, and cloud-based application development services.</p>
+            </div>
+        </div>
 {% endblock %}
