@@ -1,6 +1,6 @@
 *{
     box-sizing:border-box;
-    /*outline:1px solid red;*/
+   /* outline:1px solid red;*/
 }
 
 
@@ -51,7 +51,8 @@ body {
                 display: flex;
                 justify-content: space-between;
                 align-items:center;
-                width:100%;
+                max-width:100%;
+                gap: 20px;
                 box-sizing:border-box;
     padding:10px  20px;
             }
@@ -70,7 +71,8 @@ body {
 
 .nav { /*Why logo end text go out of the screen? Answear: Because the flex container doesn't have a defined width */
     display: flex; 
-    width:100%;
+    flex:1;
+    flex-wrap:wrap;
     gap:clamp(10px,2vw,30px);
     align-items:center;
     justify-content:space-between;
@@ -78,7 +80,7 @@ body {
 }
 
 .nav a {
-                width:fit-content;
+                white-space:nowrap;
                 color: #56bbff;
                 text-decoration: none;
               /*  margin: 0 15px;*/
@@ -105,19 +107,20 @@ body {
 
 .flag {
     
-    width:50px;
+    width:80px;
     height:50px;
-    object-fit: cover;
     justify-items:center;
     align-items:center;
-    
+    overflow:hidden;
     
 }
 
 .flag img {
     
     width: clamp(90px, 8vw, 90px);
-    height: clamp(50px, 8vw, 50px);
+    height: auto;
+    
+    object-fit: cover;
 }
 
 .team {
@@ -173,7 +176,7 @@ body {
     justify-content: center;
     color: #d5f8ff;
     font-family: Monserrat, sans-serif;
-    font-size: 100px;
+    font-size: 20px;
     transition:0.3s;
 }
 
