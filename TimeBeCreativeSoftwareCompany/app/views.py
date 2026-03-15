@@ -49,22 +49,18 @@ def submit_contact(request):
             message = form.cleaned_data["message"]
 
             # Лист до тебе
-            thread1 = threading.Thread(target=send_email_resend, args=(
+            send_email_resend(
                 f"Message from {name} <{email}>",
                 message,
                 "cherevatenkoviktoriya@gmail.com"
-            ))
-            thread1.daemon = True
-            thread1.start()
+            )
 
             # Лист клієнту
-            thread2 = threading.Thread(target=send_email_resend, args=(
+            send_email_resend(  
                 f"Дякуємо за звернення до TimeBeCreativeSoftwareCompany",
                 f"{name},<br><br>якуємо за ваше повідомлення, ми розглянемо його і відповімо, як тільки буде змога. Лист до нашої інноваційної та потужної компанії гарантує вам крок до успіху, адже ми перетворюємо ідеї на програмні рішення.<br><br>З повагою,<br>команда TimeBeCreativeSoftwareCompany",
                 email
-            ))
-            thread2.daemon = True
-            thread2.start()
+            )
 
             return render(request, "app/contact.html", {"form": ContactForm(), "success": True})
 
